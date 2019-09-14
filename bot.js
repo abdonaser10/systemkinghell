@@ -4,40 +4,6 @@ var prefix = "$"
 var adminprefix = '$'
 
 
-//bc
-
-client.on("message", message => {
-    if (message.content.startsWith("$obc")) {
-                 if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' ');
-  message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
-  m.send(`${argresult}\n ${m}`);
-  })
-  message.channel.send(`\`${message.guild.members.filter( m => m.presence.status !== 'all').size}\`:mailbox:  عدد المستلمين `);
-  message.delete();
-  };
-  });
-
-
-//bc online
-
-
-  var prefix = "$";
-
-  client.on("message", message => {
-  
-              if (message.content.startsWith(prefix + "bc")) {
-                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-    let args = message.content.split(" ").slice(1);
-    var argresult = args.join(' '); 
-    message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-   m.send(`${argresult}\n ${m}`);
-  })
-   message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `); 
-   message.delete(); 
-  };     
-  });
 
 client.on('message', message => {
     var  user = message.mentions.users.first() || message.author;
@@ -47,39 +13,17 @@ message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
 });
 
 client.on('ready',  () => {
-    console.log('تم تشغيل :Broadcast  ');
+    console.log('تم التشغيل البوت  ');
     console.log(`Logged in as * [ " ${client.user.username} " ] servers! [ " ${client.guilds.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] Users! [ " ${client.users.size} " ]`);
     console.log(`Logged in as * [ " ${client.user.username} " ] channels! [ " ${client.channels.size} " ]`);
   });
 
 
-  client.on('message', msg => {
-    if(msg.content === '$help')
-    msg.reply('Check Your DM :white_check_mark:')
-  });
+
   
-  
-  client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("#00FF00")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Help|هيلب
 
-       $obc | لأرسال برود كاست للكل
-
-       $bc  |  لأرسال برود كاست للأونلاين
-
-       $adminbc | برودكاست عادي
-
-       ** `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
-
-const developers = ["596778797551058964"]
+const developers = ["622137185918910495"] // ["608671182446919690"]
 client.on('message', message => {
     var argresult = message.content.split(` `).slice(1).join(' ');
       if (!developers.includes(message.author.id)) return;
@@ -115,3 +59,4 @@ if (message.content.startsWith(adminprefix + 'setava')) {
 
 
 client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN1);
