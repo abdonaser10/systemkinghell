@@ -5,12 +5,7 @@ var adminprefix = '$'
 
 
 
-client.on('message', message => {
-    var  user = message.mentions.users.first() || message.author;
-if (message.content.startsWith("$avatar")) {
-message.channel.send(`This avatar For ${user} link : ${user.avatarURL}`);
-}
-});
+
 
 client.on('ready',  () => {
     console.log('تم التشغيل البوت  ');
